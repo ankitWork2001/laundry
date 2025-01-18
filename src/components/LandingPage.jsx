@@ -66,7 +66,7 @@ const LandingPage = () => {
         autoplay: true,
         autoplaySpeed: 3000,
         fade: true,
-        arrows: false, 
+        arrows: false,
     };
     //   testinomial
 
@@ -203,14 +203,25 @@ const LandingPage = () => {
 
             <div className="bg-blue-800 text-yellow-500 py-10 flex flex-col lg:flex-row items-center justify-between px-4">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-2xl lg:text-3xl font-semibold">Download DhobiLite™ Mobile App</h1>
+                    <h1 className="text-2xl lg:text-3xl font-semibold">
+                        Download DhobiLite™ Mobile App
+                    </h1>
                     <p className="text-lg lg:text-xl">Get 25% OFF on garment cleaning*.</p>
                 </div>
-                <div className="flex space-x-4 mt-4 lg:mt-0">
-                    <img src={googleplay} alt="Google Play" className="h-12 lg:h-16" />
-                    <img src={appstore} alt="App Store" className="h-12 lg:h-16" />
+                <div className="flex flex-wrap justify-center lg:justify-start space-x-4 mt-4 lg:mt-0">
+                    <img
+                        src={googleplay}
+                        alt="Google Play"
+                        className="h-12 lg:h-16 max-w-full object-contain"
+                    />
+                    <img
+                        src={appstore}
+                        alt="App Store"
+                        className="h-12 lg:h-16 max-w-full object-contain"
+                    />
                 </div>
             </div>
+
 
             <div className="container mx-auto px-4 py-8">
                 <div className="text-center mb-6">
