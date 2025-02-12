@@ -1,15 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../Images/logo.webp";
 import { TiThMenu } from "react-icons/ti";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoChevronDownSharp } from "react-icons/io5";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
         <nav className="flex items-center justify-between px-4 py-4 bg-white shadow-md">
@@ -21,9 +41,74 @@ const Navbar = () => {
                 <Link to="/" className="text-gray-700 hover:text-gray-900">
                     Home
                 </Link>
-                <Link to="/" className="text-gray-700 hover:text-gray-900">
-                    Our Services
-                </Link>
+                <div className="relative" ref={dropdownRef}>
+                    <button
+                        className="flex items-center text-gray-700 hover:text-gray-900"
+                        onClick={toggleDropdown}
+                    >
+                        Our Services <IoChevronDownSharp className="ml-1" />
+                    </button>
+                    {dropdownOpen && (
+                        <div className="absolute top-8 left-0 bg-white shadow-md border rounded-lg w-48">
+                            <Link
+                                to="/washing-services"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Washing Services
+                            </Link>
+                            <Link
+                                to="/premium-dryclean-rate"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Organic Dryclean
+                            </Link>
+                            <Link
+                                to="/laundry-dryclean-rate"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Dryclean
+                            </Link>
+                            <Link
+                                to="/jacket-dry-cleaning-services"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Jacket
+                            </Link>
+                            <Link
+                                to="/shoe"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Shoe
+                            </Link>
+                            <Link
+                                to="/bag"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Bag
+                            </Link>
+                            <Link
+                                to="/sofa-carpet"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Sofa/Carpet
+                            </Link>
+                            <Link
+                                to="/steam-press"
+                                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                onClick={() => setDropdownOpen(false)}
+                            >
+                                Steam Press
+                            </Link>
+                        </div>
+                    )}
+                </div>
                 <Link to="/laundry-consultancy-planning-service" className="text-gray-700 hover:text-gray-900">
                     Consultancy
                 </Link>
@@ -50,9 +135,98 @@ const Navbar = () => {
                     <Link to="/" className="text-gray-700 hover:text-gray-900" onClick={toggleMenu}>
                         Home
                     </Link>
-                    <Link to="/" className="text-gray-700 hover:text-gray-900" onClick={toggleMenu}>
-                        Our Services
-                    </Link>
+                    <div className="w-full" ref={dropdownRef}>
+                        <button
+                            className="flex justify-between items-center w-full text-gray-700 hover:text-gray-900"
+                            onClick={toggleDropdown}
+                        >
+                            Our Services <IoChevronDownSharp />
+                        </button>
+                        {dropdownOpen && (
+                            <div className="flex flex-col bg-white shadow-md border rounded-lg">
+                                <Link
+                                    to="/washing-services"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Washing Services
+                                </Link>
+                                <Link
+                                    to="/premium-dryclean-rate"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Organic Dryclean
+                                </Link>
+                                <Link
+                                    to="/laundry-dryclean-rate"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Dryclean
+                                </Link>
+                                <Link
+                                    to="/jacket-dry-cleaning-services"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Jacket
+                                </Link>
+                                <Link
+                                    to="/shoe"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Shoe
+                                </Link>
+                                <Link
+                                    to="/bag"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Bag
+                                </Link>
+                                <Link
+                                    to="/sofa-carpet"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Sofa/Carpet
+                                </Link>
+                                <Link
+                                    to="/steam-press"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => {
+                                        setDropdownOpen(false);
+                                        setMenuOpen(false);
+                                    }}
+                                >
+                                    Steam Press
+                                </Link>
+                            </div>
+                        )}
+                    </div>
                     <Link
                         to="/laundry-consultancy-planning-service"
                         className="text-gray-700 hover:text-gray-900"

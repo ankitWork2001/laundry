@@ -7,7 +7,7 @@ import c6 from '../Images/lets-sit-and-plan-a-laundry.webp'
 import c9 from '../Images/laundry-setup.webp'
 import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
-const Services = () => {
+const Shoe = () => {
 
     // State to track the open FAQ item
     const [open, setOpen] = useState(null);
@@ -240,7 +240,7 @@ const Services = () => {
                             What Makes an Organic Dry-Cleaning Service Different From the Rest?
                         </h2>
                         <p className="text-gray-600 leading-relaxed mb-6">
-                            Quite similar to the traditional dry-cleaning method, the purpose of organic dry-cleaning is to ensure that the clothes are kept clean and neat. The difference lies in the dry-cleaning process. Are you curious to learn what makes an organic dry-cleaning service different from the rest of regular dry-cleaning services? Well then, here yougo.
+                            Quite similar to the traditional dry-cleaning method, the purpose of organic dry-cleaning is to ensure that the clothes are kept clean and neat. The difference lies in the dry-cleaning process. Are you curious to learn what makes an organic dry-cleaning service different from the rest of regular dry-cleaning services? Well then, here you go.
                         </p>
                         <ul className="list-disc list-inside text-gray-600 space-y-2">
                             <li>Uses cleaning agents and detergents that do not harm the environment.</li>
@@ -317,4 +317,4 @@ const Services = () => {
     )
 }
 
-export default Services;
+export default Shoe;
