@@ -47,6 +47,10 @@ const Bag = () => {
             question: "What do DhobiLite's prepaid plans mean?",
             answer: "DhobiLite provides a Pre-Paid plan with discounted rates for customers. Users can choose from various custom-tailored plans based on their needs, such as a plan with maximum discounts on dry-cleaning for frequent users. The plans have no expiration date, allowing customers to use them at their convenience."
         },
+         {
+            question: "What do DhobiLite's prepaid plans mean?",
+            answer: "DhobiLite provides a Pre-Paid plan with discounted rates for customers. Users can choose from various custom-tailored plans based on their needs, such as a plan with maximum discounts on dry-cleaning for frequent users. The plans have no expiration date, allowing customers to use them at their convenience."
+        },
     ];
 
     return (
